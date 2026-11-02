@@ -2,7 +2,7 @@
   "id": "runyth-rations-and-rot",
   "title": "Runyth Rations & Rot",
   "description": "Tracks food freshness and spoilage in Actor inventories using Foundry world time, with stable Actor cards, scoped inventory discovery, bulk enrollment, and per-item controls.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "compatibility": {
     "minimum": "13",
     "verified": "13.351",
@@ -31,6 +31,6 @@
   "readme": "README.md",
   "url": "https://github.com/Runyth/foundry-runyth-rations-and-rot",
   "manifest": "https://github.com/Runyth/foundry-runyth-rations-and-rot/releases/latest/download/module.json",
-  "download": "https://github.com/Runyth/foundry-runyth-rations-and-rot/releases/download/v1.0.3/runyth-rations-and-rot-v1.0.3-mod.zip",
+  "download": "https://github.com/Runyth/foundry-runyth-rations-and-rot/releases/download/v1.0.4/runyth-rations-and-rot-v1.0.4-mod.zip",
   "changelog": "CHANGELOG.md"
 }
