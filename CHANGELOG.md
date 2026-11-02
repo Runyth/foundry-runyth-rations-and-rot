@@ -1,6 +1,10 @@
 
 # Changelog
 
+## 1.0.3 — 2026-11-02
+
+Publication-surface refinement: the release verification scan and the hygiene guard compose their `x-access` pattern pieces so no published reflection of a credential-pattern fragment exists verbatim in the guard sources themselves — the same fragment family that the scanners watch for is no longer materialised in the published source archive. No manifest, runtime, or dependency change.
+
 ## 1.0.2 — 2026-08-09
 
 - First publication as a Runyth module: `runyth-rations-and-rot` / **Runyth Rations & Rot** with the publication standard in place — deterministic `-mod`, `-src`, and `-doc` archives with per-version checksums, byte-identical rebuild verification, standard quality and release pipelines, the full GNU AGPL-3.0-or-later licence with the standard source notice, the standard README licence chapter, and the manifest URL surfaces.
