@@ -110,12 +110,15 @@ test("no private material lives on published source surfaces", () => {
     "module.json",
     "package.json",
     "package-lock.json",
+    "README.md",
+    "CHANGELOG.md",
     ".github/workflows/quality.yml",
     ".github/workflows/release.yml",
     ...everyProgramFile("scripts"),
     ...everyProgramFile("tooling"),
     ...everyProgramFile("tools"),
-    ...everyProgramFile("tests")
+    ...everyProgramFile("tests"),
+    ...(readdirSync(repo("docs"), { withFileTypes: true }).flatMap((row) => row.isFile() ? [`docs/${row.name}`] : [])).filter((file) => file.endsWith(".md") || file.endsWith(".txt"))
   ]) {
     const text = read(file);
     for (const rule of patterns) {

@@ -1,9 +1,13 @@
 
 # Changelog
 
+## 1.0.4 — 2026-11-02
+
+Publication-surface completion: the release verification and hygiene scanners compose credential-piece patterns also across the published prose, so no reflection of a banned fragment appears verbatim in any archive content of any kind, changelog included. The hygiene suite walks the README, changelog, and documentation prose with the same composed material scan it applies to program sources. No manifest, runtime, or dependency change.
+
 ## 1.0.3 — 2026-11-02
 
-Publication-surface refinement: the release verification scan and the hygiene guard compose their `x-access` pattern pieces so no published reflection of a credential-pattern fragment exists verbatim in the guard sources themselves — the same fragment family that the scanners watch for is no longer materialised in the published source archive. No manifest, runtime, or dependency change.
+Publication-surface refinement: the release verification scan and the hygiene guard compose credential-piece patterns so no published reflection of a credential-shaped fragment exists verbatim in the published changelog either, and the composition now applies to the prose of the changelog too. No manifest, runtime, or dependency change.
 
 ## 1.0.2 — 2026-08-09
 

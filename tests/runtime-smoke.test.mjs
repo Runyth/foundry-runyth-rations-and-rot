@@ -119,7 +119,7 @@ test("runtime entrypoint registers hooks, settings, API, and item header control
 
   onceHooks.get("init")();
   assert.deepEqual([...menus].sort(), ["actorScopePicker", "dashboard"]);
-  assert.equal(moduleRecord.api.version, "1.0.3");
+  assert.equal(moduleRecord.api.version, "1.0.4");
   assert.equal(typeof moduleRecord.api.openDashboard, "function");
   assert.equal(typeof moduleRecord.api.openActorInventory, "function");
   assert.equal(typeof moduleRecord.api.trackItem, "function");
