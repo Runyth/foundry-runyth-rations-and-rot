@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Daniel Braniewski. See the LICENSE file for rights and obligations.
 import { MODULE_ID, MODULE_TITLE, SETTINGS } from "../constants.mjs";
 import { folderPath, normalizeIdList } from "../core/actor-scope.mjs";
 import { logger } from "../logger.mjs";

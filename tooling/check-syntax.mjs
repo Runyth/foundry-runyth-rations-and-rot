@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Daniel Braniewski. See the LICENSE file for rights and obligations.
 import { execFileSync } from "node:child_process";
 import { readdirSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
