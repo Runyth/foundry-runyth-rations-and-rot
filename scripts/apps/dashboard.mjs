@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (C) 2026 Daniel Braniewski. See the LICENSE file for rights and obligations.
 import { MODULE_ID, MODULE_TITLE, SETTINGS } from "../constants.mjs";
 import { SpoilageService } from "../services/spoilage-service.mjs";
 import { ActorInventoryManager } from "./actor-inventory.mjs";
