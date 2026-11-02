@@ -1,0 +1,110 @@
+<section class="rnr-inventory-content">
+  <header class="rnr-inventory-header">
+    <div class="rnr-item-identity">
+      <img src="{{actor.img}}" alt="">
+      <div>
+        <h2>{{actor.name}}</h2>
+        <small>{{#if actor.folderPath}}{{actor.folderPath}}{{else}}Root{{/if}}</small>
+      </div>
+    </div>
+    <div class="rnr-inventory-header-actions">
+      <button type="button" data-action="openActor"><i class="fa-solid fa-user" aria-hidden="true"></i> Open Actor</button>
+      <button type="button" data-action="refresh"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Refresh</button>
+    </div>
+  </header>
+
+  <div class="rnr-inventory-toolbar">
+    <label class="rnr-search">
+      <span class="sr-only">Filter inventory</span>
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input type="search" data-rnr-inventory-search placeholder="Filter inventory…" autocomplete="off">
+    </label>
+    <div class="rnr-inventory-stats">
+      <span><strong>{{trackedCount}}</strong> tracked</span>
+      <span><strong>{{untrackedCount}}</strong> untracked</span>
+    </div>
+    {{#if canManage}}
+      <button type="button" data-action="scanActor"><i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i> Auto-detect</button>
+      <button type="button" data-action="createCustom"><i class="fa-solid fa-plus" aria-hidden="true"></i> Create spoilable</button>
+    {{/if}}
+  </div>
+
+  {{#if empty}}
+    <div class="rnr-empty">
+      <i class="fa-solid fa-box-open" aria-hidden="true"></i>
+      <p>This Actor has no inventory Items.</p>
+      {{#if canManage}}<p>Use <strong>Create spoilable</strong> to add one directly.</p>{{/if}}
+    </div>
+  {{else}}
+    <div class="rnr-table-wrap rnr-inventory-table-wrap">
+      <table class="rnr-table rnr-inventory-table">
+        <thead>
+          <tr>
+            <th scope="col" class="rnr-select-column">
+              {{#if canManage}}
+                <input type="checkbox" data-rnr-select-all aria-label="Select all visible untracked Items">
+              {{/if}}
+            </th>
+            <th scope="col">Item</th>
+            <th scope="col">Type</th>
+            <th scope="col">Tracking</th>
+            <th scope="col">Remaining</th>
+            <th scope="col" class="rnr-actions-column">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each items}}
+            <tr class="rnr-item-row {{#if tracked}}rnr-state-{{state}}{{/if}}" data-rnr-item-row data-search="{{search}}">
+              <td class="rnr-select-column">
+                {{#if ../canManage}}
+                  {{#unless tracked}}
+                    <input type="checkbox" data-rnr-track-select value="{{id}}" aria-label="Select {{name}}">
+                  {{/unless}}
+                {{/if}}
+              </td>
+              <td>
+                <button type="button" class="rnr-document-link" data-action="openItem" data-uuid="{{uuid}}" title="Open Item sheet">
+                  <img src="{{img}}" alt="">
+                  <span><strong>{{name}}</strong>{{#if quantity}}<small>×{{quantity}}</small>{{/if}}</span>
+                </button>
+              </td>
+              <td>{{typeLabel}}</td>
+              <td>
+                {{#if tracked}}
+                  <span class="rnr-badge rnr-badge-{{state}}">{{stateLabel}}</span>
+                {{else}}
+                  <span class="rnr-muted">Not tracked</span>
+                {{/if}}
+              </td>
+              <td>
+                {{#if tracked}}
+                  <div class="rnr-remaining"><span>{{remainingLabel}}</span><progress value="{{progress}}" max="100" aria-label="Spoilage progress"></progress></div>
+                {{else}}
+                  <span class="rnr-muted">—</span>
+                {{/if}}
+              </td>
+              <td class="rnr-actions">
+                {{#if canManage}}
+                  {{#if tracked}}
+                    <button type="button" data-action="configureItem" data-uuid="{{uuid}}" title="Configure spoilage"><i class="fa-solid fa-sliders" aria-hidden="true"></i><span class="sr-only">Configure</span></button>
+                    <button type="button" data-action="freshenItem" data-uuid="{{uuid}}" title="Reset freshness"><i class="fa-solid fa-sparkles" aria-hidden="true"></i><span class="sr-only">Reset freshness</span></button>
+                    <button type="button" data-action="untrackItem" data-uuid="{{uuid}}" title="Stop tracking"><i class="fa-solid fa-link-slash" aria-hidden="true"></i><span class="sr-only">Stop tracking</span></button>
+                  {{else}}
+                    <button type="button" data-action="trackItem" data-uuid="{{uuid}}" title="Track as spoilable"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i><span class="sr-only">Track as spoilable</span></button>
+                  {{/if}}
+                {{/if}}
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  {{/if}}
+
+  {{#if canManage}}
+    <footer class="rnr-bulk-actions rnr-sticky-actions">
+      <span><strong data-rnr-selected-count>0</strong> untracked Items selected</span>
+      <button type="button" class="rnr-primary" data-action="trackSelected" disabled><i class="fa-solid fa-link" aria-hidden="true"></i> Track selected as spoilable</button>
+    </footer>
+  {{/if}}
+</section>

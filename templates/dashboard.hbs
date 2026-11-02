@@ -1,0 +1,112 @@
+<section class="rnr-dashboard-content">
+  <header class="rnr-dashboard-header">
+    <div class="rnr-dashboard-overview">
+      <div class="rnr-summary" aria-label="Spoilage summary">
+        <span class="rnr-summary-card"><strong>{{summary.total}}</strong> tracked</span>
+        <span class="rnr-summary-card rnr-state-fresh"><strong>{{summary.fresh}}</strong> fresh</span>
+        <span class="rnr-summary-card rnr-state-warning"><strong>{{summary.warning}}</strong> warning</span>
+        <span class="rnr-summary-card rnr-state-spoiled"><strong>{{summary.spoiled}}</strong> spoiled</span>
+      </div>
+    </div>
+
+    <div class="rnr-dashboard-controls" role="group" aria-label="Dashboard controls">
+      <label class="rnr-search rnr-dashboard-search">
+        <span class="sr-only">Filter Actors</span>
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <input type="search" data-rnr-search placeholder="Filter Actor, folder, or food…" autocomplete="off">
+      </label>
+
+      <div class="rnr-dashboard-actions">
+        <button type="button" data-action="refresh" title="Recalculate visible spoilage state">
+          <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+          <span>Refresh</span>
+        </button>
+        {{#if canScan}}
+          <button type="button" data-action="scan" title="Auto-detect eligible food in configured Actor scope">
+            <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+            <span>Scan inventories</span>
+          </button>
+        {{/if}}
+      </div>
+    </div>
+  </header>
+
+  <div class="rnr-status-line">
+    {{#if automationEnabled}}
+      {{#if authority}}
+        <span><i class="fa-solid fa-clock" aria-hidden="true"></i> Automatic spoilage is active on this client.</span>
+      {{else}}
+        <span><i class="fa-solid fa-eye" aria-hidden="true"></i> Live status view; the active GM performs automatic writes.</span>
+      {{/if}}
+    {{else}}
+      <span><i class="fa-solid fa-pause" aria-hidden="true"></i> Automatic spoilage is disabled. Live calculations remain visible.</span>
+    {{/if}}
+  </div>
+
+  {{#if empty}}
+    <div class="rnr-empty">
+      <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+      <p>No Actors are visible under the current access and discovery filters.</p>
+      <p>Adjust the Actor scope/folder picker in Module Settings, or use an owned Actor as a player.</p>
+    </div>
+  {{else}}
+    <div class="rnr-actor-grid">
+      {{#each actors}}
+        <article class="rnr-actor-card" data-rnr-actor-card data-search="{{search}}">
+          <header class="rnr-actor-card-header">
+            <img src="{{img}}" alt="">
+            <div class="rnr-actor-card-title">
+              <strong title="{{name}}">{{name}}</strong>
+              <small title="{{folderPath}}">{{folderPath}}</small>
+            </div>
+          </header>
+
+          <div class="rnr-actor-card-body">
+            <div class="rnr-card-total" aria-label="{{summary.total}} tracked food items">
+              <span class="rnr-card-total-icon" aria-hidden="true">
+                <i class="fa-solid fa-basket-shopping"></i>
+              </span>
+              <span class="rnr-card-total-copy">
+                <strong>{{summary.total}}</strong>
+                <span>Tracked food</span>
+              </span>
+            </div>
+
+            <div class="rnr-card-status-grid" aria-label="{{name}} spoilage states">
+              <div class="rnr-card-status rnr-state-fresh" aria-label="{{summary.fresh}} fresh">
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                <strong>{{summary.fresh}}</strong>
+                <span>Fresh</span>
+              </div>
+              <div class="rnr-card-status rnr-state-warning" aria-label="{{summary.warning}} warning">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <strong>{{summary.warning}}</strong>
+                <span>Warning</span>
+              </div>
+              <div class="rnr-card-status rnr-state-spoiled" aria-label="{{summary.spoiled}} spoiled">
+                <i class="fa-solid fa-ban" aria-hidden="true"></i>
+                <strong>{{summary.spoiled}}</strong>
+                <span>Spoiled</span>
+              </div>
+            </div>
+
+            <p class="rnr-card-inventory-count" title="{{itemCount}} inventory Items">
+              <i class="fa-solid fa-box-open" aria-hidden="true"></i>
+              <span>{{itemCount}} inventory Items</span>
+            </p>
+          </div>
+
+          <footer class="rnr-actor-card-actions">
+            <button type="button" class="rnr-primary" data-action="manageActor" data-uuid="{{uuid}}">
+              <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
+              <span>Manage food</span>
+            </button>
+            <button type="button" class="rnr-icon-button" data-action="openActor" data-uuid="{{uuid}}" title="Open Actor sheet" aria-label="Open {{name}} Actor sheet">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </button>
+          </footer>
+        </article>
+      {{/each}}
+    </div>
+  {{/if}}
+</section>

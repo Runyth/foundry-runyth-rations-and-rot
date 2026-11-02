@@ -1,0 +1,184 @@
+
+> rations-and-rot@1.0.2 verify
+> npm run check && npm test && npm run audit
+
+
+> rations-and-rot@1.0.2 check
+> node tooling/check-syntax.mjs
+
+Syntax check passed for 12 runtime module files.
+
+> rations-and-rot@1.0.2 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: ID lists are normalized and de-duplicated
+ok 1 - ID lists are normalized and de-duplicated
+  ---
+  duration_ms: 1.731777
+  type: 'test'
+  ...
+# Subtest: folder paths are deterministic from root to leaf
+ok 2 - folder paths are deterministic from root to leaf
+  ---
+  duration_ms: 0.492613
+  type: 'test'
+  ...
+# Subtest: folder regex matches the full hierarchy and invalid patterns fail open
+ok 3 - folder regex matches the full hierarchy and invalid patterns fail open
+  ---
+  duration_ms: 0.655103
+  type: 'test'
+  ...
+# Subtest: picker includes explicit Actors regardless of folder selection
+ok 4 - picker includes explicit Actors regardless of folder selection
+  ---
+  duration_ms: 0.249396
+  type: 'test'
+  ...
+# Subtest: recursive folder selection includes descendants but non-recursive selection does not
+ok 5 - recursive folder selection includes descendants but non-recursive selection does not
+  ---
+  duration_ms: 0.366324
+  type: 'test'
+  ...
+# Subtest: empty picker selection applies no additional restriction
+ok 6 - empty picker selection applies no additional restriction
+  ---
+  duration_ms: 0.147056
+  type: 'test'
+  ...
+# Subtest: combined selection requires regex and picker filters to match
+ok 7 - combined selection requires regex and picker filters to match
+  ---
+  duration_ms: 0.362854
+  type: 'test'
+  ...
+# Subtest: dashboard header uses a bounded control grid instead of a clipping action row
+ok 8 - dashboard header uses a bounded control grid instead of a clipping action row
+  ---
+  duration_ms: 1.472869
+  type: 'test'
+  ...
+# Subtest: dashboard uses uniform Actor cards with isolated metrics and action zones
+ok 9 - dashboard uses uniform Actor cards with isolated metrics and action zones
+  ---
+  duration_ms: 1.595293
+  type: 'test'
+  ...
+# Subtest: Actor inventory manager exposes stable bulk enrollment and custom spoilable actions
+ok 10 - Actor inventory manager exposes stable bulk enrollment and custom spoilable actions
+  ---
+  duration_ms: 0.541391
+  type: 'test'
+  ...
+# Subtest: Actor/folder picker is scrollable, hierarchical, searchable, and multi-selectable
+ok 11 - Actor/folder picker is scrollable, hierarchical, searchable, and multi-selectable
+  ---
+  duration_ms: 0.340217
+  type: 'test'
+  ...
+# Subtest: runtime entrypoint registers hooks, settings, API, and item header control with Foundry-like globals
+ok 12 - runtime entrypoint registers hooks, settings, API, and item header control with Foundry-like globals
+  ---
+  duration_ms: 15.876124
+  type: 'test'
+  ...
+# Subtest: bulk enrollment marks only untracked selected Items in one embedded update
+ok 13 - bulk enrollment marks only untracked selected Items in one embedded update
+  ---
+  duration_ms: 2.3589
+  type: 'test'
+  ...
+# Subtest: custom spoilable creation uses an active-system Item type and embeds tracking immediately
+ok 14 - custom spoilable creation uses an active-system Item type and embeds tracking immediately
+  ---
+  duration_ms: 10.939757
+  type: 'test'
+  ...
+# Subtest: Actor discovery filters do not freeze already tracked spoilage
+ok 15 - Actor discovery filters do not freeze already tracked spoilage
+  ---
+  duration_ms: 1.251311
+  type: 'test'
+  ...
+# Subtest: service auto-scan and reconciliation batch embedded Item state changes
+ok 16 - service auto-scan and reconciliation batch embedded Item state changes
+  ---
+  duration_ms: 2.56102
+  type: 'test'
+  ...
+# Subtest: effective age follows positive world-time at the configured rate
+ok 17 - effective age follows positive world-time at the configured rate
+  ---
+  duration_ms: 1.688342
+  type: 'test'
+  ...
+# Subtest: backward world-time movement does not make food fresher
+ok 18 - backward world-time movement does not make food fresher
+  ---
+  duration_ms: 0.233051
+  type: 'test'
+  ...
+# Subtest: state moves from fresh to warning to spoiled at boundaries
+ok 19 - state moves from fresh to warning to spoiled at boundaries
+  ---
+  duration_ms: 0.157965
+  type: 'test'
+  ...
+# Subtest: suspended storage freezes spoilage age
+ok 20 - suspended storage freezes spoilage age
+  ---
+  duration_ms: 0.161806
+  type: 'test'
+  ...
+# Subtest: changing rate settles prior age before applying the new rate
+ok 21 - changing rate settles prior age before applying the new rate
+  ---
+  duration_ms: 0.251837
+  type: 'test'
+  ...
+# Subtest: reset freshness preserves configuration and resets age
+ok 22 - reset freshness preserves configuration and resets age
+  ---
+  duration_ms: 0.111715
+  type: 'test'
+  ...
+# Subtest: next transition targets warning first and spoilage second
+ok 23 - next transition targets warning first and spoilage second
+  ---
+  duration_ms: 0.162004
+  type: 'test'
+  ...
+# Subtest: duration formatting is compact and marks overdue values
+ok 24 - duration formatting is compact and marks overdue values
+  ---
+  duration_ms: 0.756175
+  type: 'test'
+  ...
+# Subtest: D&D 5e food detection is conservative
+ok 25 - D&D 5e food detection is conservative
+  ---
+  duration_ms: 0.473257
+  type: 'test'
+  ...
+# Subtest: optional name regex detection handles valid and invalid patterns safely
+ok 26 - optional name regex detection handles valid and invalid patterns safely
+  ---
+  duration_ms: 0.54916
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 140.07692
+
+> rations-and-rot@1.0.2 audit
+> node tooling/static-audit.mjs
+
+Static Foundry v13 audit passed: 18 runtime/template/style files.

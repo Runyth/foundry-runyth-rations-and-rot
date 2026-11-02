@@ -1,0 +1,53 @@
+<section class="rnr-picker-content">
+  <header class="rnr-picker-summary">
+    <div>
+      <strong>{{selectedFolderCount}}</strong> folders and <strong>{{selectedActorCount}}</strong> explicit Actors selected.
+      {{#unless selectionActive}}
+        <span class="rnr-muted">No picker restriction is active.</span>
+      {{/unless}}
+    </div>
+    <div class="rnr-picker-context">
+      <span><i class="fa-solid fa-folder-tree" aria-hidden="true"></i> Recursive: {{#if recursive}}yes{{else}}no{{/if}}</span>
+      {{#if folderPattern}}
+        <span class="{{#unless patternValid}}rnr-text-danger{{/unless}}"><i class="fa-solid fa-filter" aria-hidden="true"></i> Folder regex: <code>{{folderPattern}}</code></span>
+      {{/if}}
+    </div>
+  </header>
+
+  {{#unless patternValid}}
+    <div class="rnr-callout rnr-callout-danger">
+      The configured Actor folder regular expression is invalid. For safety, the invalid regex is ignored until corrected in Module Settings.
+    </div>
+  {{/unless}}
+
+  <div class="rnr-picker-toolbar">
+    <label class="rnr-search rnr-picker-search">
+      <span class="sr-only">Filter Actors and folders</span>
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input type="search" data-rnr-picker-search placeholder="Filter Actors or folders…" autocomplete="off">
+    </label>
+    <button type="button" data-action="selectVisible"><i class="fa-solid fa-check-double" aria-hidden="true"></i> Select visible</button>
+    <button type="button" data-action="clearVisible"><i class="fa-solid fa-eraser" aria-hidden="true"></i> Clear visible</button>
+    <button type="button" data-action="clearAll"><i class="fa-solid fa-xmark" aria-hidden="true"></i> Clear all</button>
+  </div>
+
+  <div class="rnr-picker-list" role="tree" aria-label="Actor and folder selection">
+    {{#each rows}}
+      <label class="rnr-picker-row rnr-picker-row-{{kind}}" data-rnr-picker-row data-search="{{search}}" style="--rnr-depth: {{depth}}" role="treeitem" aria-level="{{ariaLevel}}">
+        {{#if isFolder}}
+          <input type="checkbox" name="folderIds" value="{{id}}" {{#if checked}}checked{{/if}}>
+          <i class="fa-solid fa-folder" aria-hidden="true"></i>
+          <span class="rnr-picker-label"><strong>{{name}}</strong><small>{{path}}</small></span>
+        {{else}}
+          <input type="checkbox" name="actorIds" value="{{id}}" {{#if checked}}checked{{/if}}>
+          <img src="{{img}}" alt="">
+          <span class="rnr-picker-label"><strong>{{name}}</strong>{{#if folderPath}}<small>{{folderPath}}</small>{{else}}<small>Root</small>{{/if}}</span>
+        {{/if}}
+      </label>
+    {{/each}}
+  </div>
+
+  <footer class="rnr-form-actions rnr-sticky-actions">
+    <button type="submit" class="rnr-primary"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save selection</button>
+  </footer>
+</section>

@@ -1,0 +1,75 @@
+<section class="rnr-item-config-content">
+  <header class="rnr-item-identity">
+    <img src="{{item.img}}" alt="">
+    <div>
+      <h2>{{item.name}}</h2>
+      {{#if tracked}}
+        <span class="rnr-badge rnr-badge-{{status.state}}">{{status.stateLabel}}</span>
+        <span>{{status.remainingLabel}} remaining</span>
+      {{else}}
+        <span>Not currently tracked</span>
+      {{/if}}
+    </div>
+  </header>
+
+  {{#if autoDetected}}
+    <p class="rnr-callout"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> This Item was auto-detected as food.</p>
+  {{/if}}
+
+  <div class="rnr-form-grid">
+    <label class="rnr-checkbox-row">
+      <input type="checkbox" name="enabled" {{#if enabled}}checked{{/if}} {{#unless canManage}}disabled{{/unless}}>
+      <span>Track spoilage for this Item</span>
+    </label>
+
+    <label>
+      <span>Shelf life in days</span>
+      <input type="number" name="shelfLifeDays" value="{{shelfLifeDays}}" min="0.01" max="3650" step="0.01" required {{#unless canManage}}disabled{{/unless}}>
+      <small>Effective spoilage age reaches this duration before the Item becomes spoiled.</small>
+    </label>
+
+    <label>
+      <span>Storage preset</span>
+      <select data-rnr-storage-preset {{#unless canManage}}disabled{{/unless}}>
+        {{#each presets}}
+          <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}} — {{hint}}</option>
+        {{/each}}
+        <option value="custom" {{#if customRate}}selected{{/if}}>Custom rate</option>
+      </select>
+    </label>
+
+    <label>
+      <span>Spoilage rate multiplier</span>
+      <input type="number" name="rate" value="{{rate}}" min="0" max="100" step="0.01" required {{#unless canManage}}disabled{{/unless}}>
+      <small>1 = normal, 0.5 = half speed, 2 = double speed, 0 = suspended.</small>
+    </label>
+
+    <label>
+      <span>Storage / tracking note</span>
+      <textarea name="note" rows="3" placeholder="e.g. salted, ice cellar, wrapped in leaves" {{#unless canManage}}disabled{{/unless}}>{{note}}</textarea>
+    </label>
+  </div>
+
+  {{#if tracked}}
+    <div class="rnr-detail-grid">
+      <span><strong>Effective rate</strong> ×{{status.data.rate}}</span>
+      <span><strong>Spoilage progress</strong> {{status.progress}}%</span>
+    </div>
+  {{/if}}
+
+  {{#if canManage}}
+    <footer class="rnr-form-actions">
+      {{#if tracked}}
+        <button type="button" data-action="freshen">
+          <i class="fa-solid fa-sparkles" aria-hidden="true"></i> Reset freshness
+        </button>
+        <button type="button" data-action="stopTracking">
+          <i class="fa-solid fa-link-slash" aria-hidden="true"></i> Stop tracking
+        </button>
+      {{/if}}
+      <button type="submit" class="rnr-primary">
+        <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save
+      </button>
+    </footer>
+  {{/if}}
+</section>

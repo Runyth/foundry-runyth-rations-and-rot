@@ -1,0 +1,52 @@
+<section class="rnr-item-config-content">
+  <div class="rnr-callout">
+    Create an Item directly in <strong>{{actor.name}}</strong>'s inventory and enroll it in spoilage tracking immediately.
+  </div>
+
+  <div class="rnr-form-grid">
+    <label>
+      <span>Item name</span>
+      <input type="text" name="name" required autofocus autocomplete="off" placeholder="Fresh bread">
+    </label>
+
+    <label>
+      <span>Item type</span>
+      <select name="type" required>
+        {{#each itemTypes}}
+          <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+      </select>
+      <small>Available Item types are taken from the active game system.</small>
+    </label>
+
+    <label>
+      <span>Shelf life (days)</span>
+      <input type="number" name="shelfLifeDays" min="0.01" max="3650" step="0.25" value="{{defaultShelfLifeDays}}" required>
+    </label>
+
+    <label>
+      <span>Storage preset</span>
+      <select data-rnr-storage-preset>
+        {{#each presets}}
+          <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}} — {{hint}}</option>
+        {{/each}}
+        <option value="custom">Custom rate</option>
+      </select>
+    </label>
+
+    <label>
+      <span>Spoilage rate</span>
+      <input type="number" name="rate" min="0" max="100" step="0.01" value="1" required>
+      <small>1 = normal, 0.5 = half speed, 0 = suspended.</small>
+    </label>
+
+    <label>
+      <span>Note</span>
+      <textarea name="note" rows="3" placeholder="Optional storage or provenance note"></textarea>
+    </label>
+  </div>
+
+  <footer class="rnr-form-actions">
+    <button type="submit" class="rnr-primary"><i class="fa-solid fa-plus" aria-hidden="true"></i> Create and track</button>
+  </footer>
+</section>

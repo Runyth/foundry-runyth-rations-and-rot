@@ -1,0 +1,13 @@
+{
+  "name": "rations-and-rot",
+  "version": "1.0.2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node tooling/check-syntax.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "audit": "node tooling/static-audit.mjs",
+    "verify": "npm run check && npm test && npm run audit",
+    "package-release": "python3 tooling/package-release.py"
+  }
+}

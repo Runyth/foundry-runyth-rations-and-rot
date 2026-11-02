@@ -1,0 +1,24 @@
+{
+  "id": "rations-and-rot",
+  "title": "Rations & Rot",
+  "description": "Tracks food freshness and spoilage in Actor inventories using Foundry world time, with stable Actor cards, scoped inventory discovery, bulk enrollment, and per-item controls.",
+  "version": "1.0.2",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351",
+    "maximum": "13"
+  },
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "styles/rations-and-rot.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}
