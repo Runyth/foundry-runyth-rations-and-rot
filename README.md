@@ -1,62 +1,102 @@
-# rations-and-rot-1.0.2
+# Runyth Rations & Rot
 
-## Rations & Rot
+Runyth Rations & Rot tracks food freshness and spoilage in Actor inventories using
+Foundry world time, with stable Actor cards, scoped inventory discovery, bulk
+enrollment, and per-item controls. A small system-agnostic Foundry VTT module
+targeting **Foundry VTT v13**.
 
-Rations & Rot is a Foundry Virtual Tabletop v13 module for tracking food freshness and spoilage in Actor inventories without destructive inventory automation.
+## Supported environment
 
-### Highlights
+- Foundry Virtual Tabletop 13 (verified against 13.351)
+- System-agnostic: food freshness discovery works without a game system; full
+  consumable auto-detection activates for the D&D 5e system when that system is
+  active
 
-- Uses Foundry world time rather than real-world timers.
-- Polished, strictly aligned Actor summary cards with isolated identity, status, and action zones.
-- Bounded dashboard control grid that keeps Search, Refresh, and Scan inventories visible at supported window widths.
-- Per-Actor inventory manager opened from each card.
-- Searchable inventory browser with multi-select and one-click spoilable enrollment.
-- Custom spoilable Item creation from the dashboard workflow.
-- Actor discovery scope by ownership/type, folder-path regex, hierarchical Actor/folder selection, and optional recursive folder matching.
-- Tracks shelf life per embedded Item stack with hot, normal, cool, cold, preserved, and suspended storage rates.
-- Automatically detects D&D 5e consumable Items with the `food` subtype.
-- Optional regular-expression Item-name matching for other systems and homebrew Items.
-- GM dashboard plus owner-limited player access.
-- Active-GM-only automatic transition writes and batched embedded Item updates.
-- No automatic Item deletion, quantity mutation, or renaming.
+## Features
 
-### Installation
+- Tracks freshness and spoilage of perishable food Items inside Actor inventories.
+- Follows Foundry world time; a configurable age rate converts elapsed world seconds
+  into food age.
+- Stable Actor cards keep each tracked inventory visible and actionable between
+  runs.
+- Scoped inventory discovery: choose the tracked Actors and Item folders in one
+  hierarchical, searchable, multi-select picker, or enroll in bulk with one embed.
+- Per-item controls add or retarget spoilable Items and adjust their behaviour.
+- Four states per Item: fresh, warning, spoiled; state changes reflect the
+  configured thresholds.
+- Dashboard application with a content-sized responsive geometry and uniform Actor
+  cards that isolate metrics from action zones.
+- Runtime entrypoint registers hooks, settings, a public API, and Item header
+  controls through the public ApplicationV2 header-control contract.
+- English localization under the `RATIONS_AND_ROT.*` namespace and scoped CSS under
+  the `rnr-` class scope.
 
-Extract the install ZIP into `Data/modules/rations-and-rot`, then enable **Rations & Rot** in the world.
+## Installation
 
-The install ZIP contains only files required at Foundry runtime. The source ZIP contains the exact release source plus tests, documentation, audit tooling, and reproducible packaging workflow. The documentation ZIP contains release documentation, tests, validation output, and checksums.
+1. Extract the `runyth-rations-and-rot` directory into:
 
-### Dashboard workflow
+   ```text
+   <Foundry user-data>/Data/modules/
+   ```
 
-1. Open **Game Settings → Configure Settings → Module Settings → Rations & Rot Dashboard → Open Dashboard**.
-2. Use the aligned Actor cards for a quick spoilage summary.
-3. Select **Manage food** on an Actor card to open that Actor's focused inventory manager.
-4. Search the inventory, select multiple Items, and choose **Track selected**, or track a single Item directly.
-5. Choose **Create spoilable** to create a custom Item that enters tracking immediately.
+2. Restart Foundry VTT if necessary.
+3. Enable **Runyth Rations & Rot** in **Manage Modules** for the world.
 
-### Actor discovery scope
+## Configuration
 
-Global Module Settings provide:
+1. Open the dashboard through the module settings.
+2. Choose the tracked Actors and their folder scopes.
+3. Assign spoilage thresholds and world-time age rate.
+4. Use bulk enrollment to track the matched Items in one step.
 
-- coarse Actor scope: player-owned Actors, character Actors, or all Actors;
-- Actor-folder regex matched against the full folder path;
-- **Choose Actors and Folders** hierarchical picker;
-- recursive/non-recursive matching for selected folders.
+The game-system auto-detection only reads system-agnostic Item concepts; the module
+binds no game system and declares no module relationships.
 
-Discovery filters decide which Actors are offered for scanning and management. Already tracked Items continue to age if their Actor later moves outside the configured discovery scope.
+## Development validation
 
-### Item workflow
-
-Open an embedded Item sheet and choose **Spoilage** from the sheet header controls to configure tracking, shelf life, storage rate, note, or freshness reset.
-
-### Development
-
-Run:
+With Node.js 24 (22.13 or later works):
 
 ```text
-npm run verify
+npm test
+npm run check
 ```
 
-This performs runtime syntax checks, the Node regression suite, and the static Foundry v13 release audit.
+These checks validate actor scope resolution, dashboard layout geometry, runtime
+smoke behaviour, service management, spoilage logic, manifest identity and URL
+surfaces, source notices, licence and publication hygiene, and deterministic
+byte-identical release packaging.
+They do not replace testing in a live Foundry world.
 
-See `docs/` for architecture, API, compatibility, manual qualification, QA, and user guidance.
+## Releases
+
+The GitHub repository is
+[`Runyth/foundry-runyth-rations-and-rot`](https://github.com/Runyth/foundry-runyth-rations-and-rot).
+Every release attaches:
+
+```text
+runyth-rations-and-rot-v<version>-mod.zip
+runyth-rations-and-rot-v<version>-src.zip
+runyth-rations-and-rot-v<version>-doc.zip
+module.json
+runyth-rations-and-rot-v<version>-SHA256SUMS.txt
+```
+
+The `module.json` manifest download URL points at the matching release's installable
+archive, and the marked Latest release is always the highest published version.
+
+## Licence
+
+Copyright © 2026  [Daniel Braniewski](https://brani.dev/)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
