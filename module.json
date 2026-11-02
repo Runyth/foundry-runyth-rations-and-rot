@@ -1,6 +1,6 @@
 {
-  "id": "rations-and-rot",
-  "title": "Rations & Rot",
+  "id": "runyth-rations-and-rot",
+  "title": "Runyth Rations & Rot",
   "description": "Tracks food freshness and spoilage in Actor inventories using Foundry world time, with stable Actor cards, scoped inventory discovery, bulk enrollment, and per-item controls.",
   "version": "1.0.2",
   "compatibility": {
@@ -12,7 +12,7 @@
     "scripts/main.mjs"
   ],
   "styles": [
-    "styles/rations-and-rot.css"
+    "styles/runyth-rations-and-rot.css"
   ],
   "languages": [
     {

@@ -1,5 +1,5 @@
-export const MODULE_ID = "rations-and-rot";
-export const MODULE_TITLE = "Rations & Rot";
+export const MODULE_ID = "runyth-rations-and-rot";
+export const MODULE_TITLE = "Runyth Rations & Rot";
 export const MODULE_VERSION = "1.0.2";
 
 export const SECONDS_PER_HOUR = 60 * 60;

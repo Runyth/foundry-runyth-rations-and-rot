@@ -11,7 +11,7 @@ function read(relative) {
 
 test("dashboard header uses a bounded control grid instead of a clipping action row", () => {
   const template = read("templates/dashboard.hbs");
-  const css = read("styles/rations-and-rot.css");
+  const css = read("styles/runyth-rations-and-rot.css");
 
   assert.match(template, /rnr-dashboard-header/);
   assert.match(template, /rnr-dashboard-controls/);
@@ -28,7 +28,7 @@ test("dashboard header uses a bounded control grid instead of a clipping action 
 
 test("dashboard uses uniform Actor cards with isolated metrics and action zones", () => {
   const template = read("templates/dashboard.hbs");
-  const css = read("styles/rations-and-rot.css");
+  const css = read("styles/runyth-rations-and-rot.css");
 
   assert.match(template, /rnr-actor-grid/);
   assert.match(template, /rnr-card-total/);
@@ -56,7 +56,7 @@ test("Actor inventory manager exposes stable bulk enrollment and custom spoilabl
 
 test("Actor\/folder picker is scrollable, hierarchical, searchable, and multi-selectable", () => {
   const template = read("templates/actor-scope-picker.hbs");
-  const css = read("styles/rations-and-rot.css");
+  const css = read("styles/runyth-rations-and-rot.css");
   assert.match(template, /role="tree"/);
   assert.match(template, /name="folderIds"/);
   assert.match(template, /name="actorIds"/);
