@@ -59,8 +59,10 @@ test("the README quotes the standard licence chapter", () => {
   assert.ok(readme.includes("<https://www.gnu.org/licenses/>"));
 });
 
-test("the changelog carries the 1.0.2 release section", () => {
-  assert.ok(read("CHANGELOG.md").includes("## 1.0.2 — 2026-11-02"));
+test("the changelog carries the 1.0.2 release section and its Runyth publication record", () => {
+  const changelog = read("CHANGELOG.md");
+  assert.ok(changelog.includes("## 1.0.2 — 2026-08-09"));
+  assert.ok(changelog.includes("First publication as a Runyth module"));
 });
 
 test("published surfaces name no foreign module and give no foreign credit", () => {
