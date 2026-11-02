@@ -102,7 +102,7 @@ test("no private material lives on published source surfaces", () => {
     pattern(["GITHUB_", "TOKEN"]),
     pattern(["gh", "[psro]_[A-Za-z0-9]{20,}"]),
     pattern(["http.*\\.extra", "header"]),
-    pattern(["x-access-", "token"]),
+    pattern(["x-", "access-", "token"]),
     pattern(["/mnt", "/"]),
     pattern(["/home", "/"])
   ];

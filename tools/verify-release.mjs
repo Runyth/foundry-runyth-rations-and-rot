@@ -11,7 +11,7 @@ import { build } from "./build.mjs";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const MODULE_ID = "runyth-rations-and-rot";
-const VERSION = "1.0.2";
+const VERSION = "1.0.3";
 
 function fail(message) {
   process.stderr.write(`Verification failed: ${message}\n`);
@@ -38,7 +38,7 @@ function riffleScan(text, { stripHolder = false } = {}) {
     new RegExp(composed("ik", "\\.me"), "iu"),
     new RegExp(composed("GITHUB_", "TOKEN")),
     new RegExp(composed("gh", "[psro]_[A-Za-z0-9]{20,}")),
-    new RegExp(composed("https?://[^\\s]*x-access-", "token")),
+    new RegExp(composed("https?://[^\\s]*x-", "access-", "token")),
     new RegExp(composed("AUTHORIZATION", ": "), "iu"),
     new RegExp(composed("http.*\\.extra", "header")),
     new RegExp(composed("/mnt", "/"), "u"),
