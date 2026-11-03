@@ -1,28 +1,22 @@
-
 # Changelog
 
 ## 1.0.4 — 2026-11-02
 
-Publication-surface completion: the release verification and hygiene scanners compose credential-piece patterns also across the published prose, so no reflection of a banned fragment appears verbatim in any archive content of any kind, changelog included. The hygiene suite walks the README, changelog, and documentation prose with the same composed material scan it applies to program sources. No manifest, runtime, or dependency change.
+- Publication-surface completion: the release verification and hygiene scanners compose credential-piece patterns also across the published prose, so no reflection of a banned fragment appears verbatim in any archive content of any kind, changelog included. The hygiene suite walks the README, changelog, and documentation prose with the same composed material scan it applies to program sources. No manifest, runtime, or dependency change.
 
 ## 1.0.3 — 2026-11-02
 
-Publication-surface refinement: the release verification scan and the hygiene guard compose credential-piece patterns so no published reflection of a credential-shaped fragment exists verbatim in the published changelog either, and the composition now applies to the prose of the changelog too. No manifest, runtime, or dependency change.
+- Publication-surface refinement: the release verification scan and the hygiene guard compose credential-piece patterns so no published reflection of a credential-shaped fragment exists verbatim in the published changelog either, and the composition now applies to the prose of the changelog too. No manifest, runtime, or dependency change.
 
 ## 1.0.2 — 2026-08-09
 
 - First publication as a Runyth module: `runyth-rations-and-rot` / **Runyth Rations & Rot** with the publication standard in place — deterministic `-mod`, `-src`, and `-doc` archives with per-version checksums, byte-identical rebuild verification, standard quality and release pipelines, the full GNU AGPL-3.0-or-later licence with the standard source notice, the standard README licence chapter, and the manifest URL surfaces.
 - Behaviour, detection, dashboards, and settings are unchanged; the module-internal `rnr-` CSS scope and `RATIONS_AND_ROT.*` localization namespace keep their contract.
 
-
-### Fixed
-
 - Rebuilt the dashboard control header so the search field, Refresh button, and Scan inventories button remain inside the Application content box instead of being clipped by an overflowing non-wrapping action row.
 - Added border-box sizing and explicit minimum-width containment throughout module Applications to prevent padded controls and grid children from escaping their available width.
 - Replaced the prior Actor-card metric layout with isolated fixed-height identity, metrics, and action zones so Fresh, Warning, and Spoiled indicators cannot flow into the Manage food footer.
 - Increased and normalized Actor-card row geometry while preserving equal card height across the dashboard.
-
-### Improved
 
 - Redesigned Actor cards with a clearer identity header, prominent tracked-food summary, equal three-column freshness state tiles, consistent inventory metadata, and a visually separated action footer.
 - Added subtle theme-aware borders, surfaces, focus/hover treatment, and hierarchy without adding image loading, observers, animations beyond short CSS transitions, or runtime layout JavaScript.
@@ -32,13 +26,9 @@ Publication-surface refinement: the release verification scan and the hygiene gu
 
 ## 1.0.1 — 2026-08-09
 
-### Fixed
-
 - Replaced variable-height Actor inventory cards with a stable summary-card grid whose rows and action footers remain aligned across dashboard sizes.
 - Removed full inventory tables from the main dashboard so one Actor with many Items can no longer distort every other Actor card.
 - Preserved tracked-item spoilage when an Actor later falls outside discovery filters; scope settings affect discovery/browsing, not the aging clock of already tracked food.
-
-### Added
 
 - Focused per-Actor inventory manager opened from each dashboard card.
 - Searchable inventory browsing with stable table columns and fixed action placement.
@@ -56,8 +46,6 @@ Publication-surface refinement: the release verification scan and the hygiene gu
 - Static Foundry v13 release audit covering manifest paths, prohibited legacy helpers, dashboard structure, inventory bulk actions, and picker semantics.
 
 ## 1.0.0 — 2026-08-08
-
-### Added
 
 - Foundry VTT v13-native `ApplicationV2` dashboard and per-item configuration window.
 - World-time-driven food spoilage with no real-time timers and no periodic background polling.
