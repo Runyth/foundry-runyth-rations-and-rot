@@ -1,36 +1,36 @@
 {
-  "id": "runyth-rations-and-rot",
-  "title": "Runyth Rations & Rot",
-  "description": "Tracks food freshness and spoilage in Actor inventories using Foundry world time, with stable Actor cards, scoped inventory discovery, bulk enrollment, and per-item controls.",
-  "version": "1.0.4",
-  "compatibility": {
-    "minimum": "13",
-    "verified": "13.351",
-    "maximum": "13"
-  },
-  "authors": [
-    {
-      "name": "Runyth",
-      "url": "https://github.com/Runyth"
-    }
-  ],
-  "esmodules": [
-    "scripts/main.mjs"
-  ],
-  "styles": [
-    "styles/runyth-rations-and-rot.css"
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
-  "license": "LICENSE",
-  "readme": "README.md",
-  "url": "https://github.com/Runyth/foundry-runyth-rations-and-rot",
-  "manifest": "https://github.com/Runyth/foundry-runyth-rations-and-rot/releases/latest/download/module.json",
-  "download": "https://github.com/Runyth/foundry-runyth-rations-and-rot/releases/download/v1.0.4/runyth-rations-and-rot-v1.0.4-mod.zip",
-  "changelog": "CHANGELOG.md"
+ "id": "runyth-rations-and-rot",
+ "title": "Runyth Rations & Rot",
+ "description": "Tracks food freshness and spoilage in Actor inventories using Foundry world time, with stable Actor cards, scoped inventory discovery, bulk enrollment, and per-item controls.",
+ "version": "1.0.5",
+ "compatibility": {
+  "minimum": "13",
+  "verified": "13.351",
+  "maximum": "13"
+ },
+ "authors": [
+  {
+   "name": "Runyth",
+   "url": "https://github.com/Runyth"
+  }
+ ],
+ "esmodules": [
+  "scripts/main.mjs"
+ ],
+ "styles": [
+  "styles/runyth-rations-and-rot.css"
+ ],
+ "languages": [
+  {
+   "lang": "en",
+   "name": "English",
+   "path": "lang/en.json"
+  }
+ ],
+ "license": "LICENSE",
+ "readme": "README.md",
+ "url": "https://github.com/Runyth/foundry-runyth-rations-and-rot",
+ "manifest": "https://github.com/Runyth/foundry-runyth-rations-and-rot/releases/latest/download/module.json",
+ "download": "https://github.com/Runyth/foundry-runyth-rations-and-rot/releases/download/v1.0.5/runyth-rations-and-rot-v1.0.5-mod.zip",
+ "changelog": "CHANGELOG.md"
 }

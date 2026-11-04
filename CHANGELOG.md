@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5 — 2026-11-04
+
+- The installable archive now ships every relative import the manifest entry needs, so the module's buttons and settings register on world load instead of silently failing.
+
 ## 1.0.4 — 2026-11-02
 
 - Publication-surface completion: the release verification and hygiene scanners compose credential-piece patterns also across the published prose, so no reflection of a banned fragment appears verbatim in any archive content of any kind, changelog included. The hygiene suite walks the README, changelog, and documentation prose with the same composed material scan it applies to program sources. No manifest, runtime, or dependency change.
