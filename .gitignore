@@ -4,3 +4,13 @@ dist/
 *.log
 .DS_Store
 __pycache__/
+# --- Runyth template managed (begin) ---
+coverage/
+.nyc_output/
+.cache/
+.runyth-template-source/
+.env
+.env.*
+!.env.example
+Thumbs.db
+# --- Runyth template managed (end) ---
